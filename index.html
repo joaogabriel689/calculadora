@@ -7,6 +7,12 @@
     <style>
         body{
             background-color: black;
+            display: flex;               
+            flex-direction: column;      
+            justify-content: center;      
+            align-items: center;         
+            height: 100vh;               
+            margin: 0;    
 
         }
         h1{
@@ -14,14 +20,13 @@
             text-align: center;
         }
         #tn1{
-            border-radius: 15px;
             width: 240px;
             height: 40px;
+            border-radius: 15px;
             background-color: darkgoldenrod;
-            position: relative;
-            justify-content: center;
-            display: flex;
-            margin: auto;
+            text-align: right;           
+            font-size: 20px;
+            padding: 5px;
         }
         .botoesc{
             width: 60px;
@@ -35,10 +40,10 @@
         }
         #areabotao{
             display: grid;
-            grid-template-columns: repeat(4,60px);
-            grid-gap: 10px;
-            justify-content: center;
-            margin-top: 20px;
+        grid-template-columns: repeat(4, 60px);
+        grid-gap: 10px;
+        justify-content: center;     /* centraliza a grade horizontalmente */
+        margin-top: 20px;
 
         }
         #res{
@@ -74,58 +79,70 @@
         <input type="button" value="4" id="4" class="botoesc" onclick="addnumber('4')">
         <input type="button" value="5" id="5" class="botoesc" onclick="addnumber('5')">
         <input type="button" value="6" id="6" class="botoesc" onclick="addnumber('6')">
-        <input type="button" value="+" id="somar" onclick="calcular('+')" class="botoesc">
+        <input type="button" value="+" id="somar" onclick="salvarnumero('+')" class="botoesc">
 
 
         <input type="button" value="1" id="1" class="botoesc" onclick="addnumber('1')">
         <input type="button" value="2" id="2" class="botoesc" onclick="addnumber('2')">
         <input type="button" value="3" id="3" class="botoesc" onclick="addnumber('3')">
-        <input type="button" value="X" id="mutiplicar" onclick="calcular('*')" class="botoesc">
+        <input type="button" value="X" id="mutiplicar" onclick="salvarnumero('*')" class="botoesc">
 
 
         <input type="button" value="7" id="7" class="botoesc" onclick="addnumber('7')">
         <input type="button" value="8" id="8" class="botoesc" onclick="addnumber('8')">
         <input type="button" value="9" id="9" class="botoesc" onclick="addnumber('9')">
-        <input type="button" value="/" id="dividir" onclick="calcular('/')" class="botoesc">
+        <input type="button" value="/" id="dividir" onclick="salvarnumero('/')" class="botoesc">
+
+        <input type="button" value="0" id="0" class="botoesc" onclick="addnumber('0')">
 
         <input type="button" value="C" onclick="limpar()" class="botoesc">
+        <input type="button" value="=" onclick="calcular(num1, num2, operador)" class="botoesc">
+        
     </div>
     
     <p id="res">resultado:</p>
     <script>
         var res = document.getElementById("res")
         var visor = document.getElementById("tn1")
+        var num1 = null
+        var operador = null
+        var num2 = null
 
        function addnumber(number){
         visor.value += number
+        
        }
        function limpar(){
         visor.value = ""
         res.innerHTML = `resutado:`
        }
+       function salvarnumero(op){
+            num1 = visor.value
+            operador = op
+            visor.value = ""
 
-        function calcular(op){
-            var tn1 = document.getElementById("tn1")
-            var tn2 = document.getElementById("tn2")
-            var n1 = Number(tn1.value)
-            var n2 = Number(tn2.value)  
-            var resltado
-            if (op==='-'){
-                var resultado = n1 - n2
+       }
+
+        function calcular(num1, num2, operador){
+            var n1 = Number(num1)
+            var n2 = Number(visor.value)  
+            var resultado
+            if (operador==='-'){
+                resultado = n1 - n2
             }
-            if (op==='+'){
-                var resultado = n1 + n2
+            if (operador==='+'){
+                resultado = n1 + n2
 
             }
-            if (op==='*'){
-                var resultado = n1 * n2
+            if (operador==='*'){
+                resultado = n1 * n2
             }
-            if (op==='/'){
+            if (operador==='/'){
                 if (n2===0){
                     res.innerHTML = `nao é possivel dividir por zero`
                     return
                 }else{
-                    var resultado = n1 / n2
+                    resultado = n1 / n2
                 }
             }
             res.innerHTML = `resltado: ${resultado}`
