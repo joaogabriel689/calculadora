@@ -118,7 +118,10 @@
         res.innerHTML = `resutado:`
        }
        function salvarnumero(op){
-            num1 = visor.value
+            if (num1 ===null ){
+               num1 = visor.value 
+            }
+            
             operador = op
             visor.value = ""
 
