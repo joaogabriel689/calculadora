@@ -107,6 +107,7 @@
         var num1 = null
         var operador = null
         var num2 = null
+        var resultado = null
 
        function addnumber(number){
         visor.value += number
@@ -126,27 +127,11 @@
         function calcular(num1, num2, operador){
             var n1 = Number(num1)
             var n2 = Number(visor.value)  
-            var resultado
             if (operador==='-'){
                 resultado = n1 - n2
             }
-<<<<<<< HEAD
-        }
-        */
-        function calcular(op){
-            var tn1 = document.getElementById("tn1")
-            var tn2 = document.getElementById("tn2")
-            var n1 = Number(tn1.value)
-            var n2 = Number(tn2.value)  
-            if (op==='-'){
-                var resultado = n1 - n2
-            }
-            if (op==='+'){
-                var resultado = n1 + n2
-=======
             if (operador==='+'){
                 resultado = n1 + n2
->>>>>>> 01abef61e3dfe54d5aac665339da62f015724504
 
             }
             if (operador==='*'){
@@ -161,6 +146,8 @@
                 }
             }
             res.innerHTML = `resltado: ${resultado}`
+            visor.value = resultado
+            num1 = resultado
         }
 
 
