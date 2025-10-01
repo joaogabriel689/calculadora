@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calaculadora</title>
+    <style>
+        body{
+            background-color: black;
+
+        }
+        h1{
+            color: white;
+            text-align: center;
+        }
+        #tn1{
+            border-radius: 15px;
+            width: 4rem;
+            height: 2rem;
+            background-color: darkgoldenrod;
+            margin: auto;
+        }
+        #tn2{
+            border-radius: 15px;
+            width: 4rem;
+            height: 2rem;
+            background-color: darkgoldenrod;
+            margin: auto;
+        }
+        .botoesc{
+            background-color: darkgoldenrod;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 15px;
+            margin: auto;
+            cursor: pointer;
+        }
+        #areabotao{
+            flex-direction: column;
+            width: 12rem;
+            height: 2rem;
+            margin-top: 30px;
+            margin: auto;
+            padding-left: 10px;
+            gap: initial;
+        }
+        #res{
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #areanumeros{
+            margin: auto;
+            width: 10rem;
+            height: 2rem;
+            margin-bottom: 30px;
+
+        }
+        .botoesc:hover{
+            background-color: rgb(255, 188, 19);
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>calculadora simples</h1>
+    <div id="areanumeros">
+        <input type="number" id="tn1">
+        <input type="number" id="tn2">
+    </div>
+    <div id="areabotao">
+        <input type="button" value="-" id="subtrair" onclick="calcular('-')" class="botoesc">
+        <input type="button" value="+" id="somar" onclick="calcular('+')" class="botoesc">
+        <input type="button" value="X" id="mutiplicar" onclick="calcular('*')" class="botoesc">
+        <input type="button" value="/" id="dividir" onclick="calcular('/')" class="botoesc">
+        <input type="button" value="C" onclick="res.innerHTML='Resultado:'" class="botoesc">
+
+    </div>
+    
+    <p id="res">resultado:</p>
+    <script>
+        var res = document.getElementById("res")
+/*
+        function somar(){
+            var tn1 = document.getElementById("tn1")
+            var tn2 = document.getElementById("tn2")
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)  
+            var resultado = n1 + n2
+            
+            res.innerHTML = `Resultado: ${resultado}`
+
+        }
+        function subtrair(){
+            var tn1 = document.getElementById("tn1")
+            var tn2 = document.getElementById("tn2")
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)  
+            var resultado = n1 - n2
+            
+            res.innerHTML = `Resultado: ${resultado}`
+
+        }
+        function multiplicar(){
+            var tn1 = document.getElementById("tn1")
+            var tn2 = document.getElementById("tn2")
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)  
+            var resultado = n1 * n2
+            
+            res.innerHTML = `Resultado: ${resultado}`
+
+        }
+        function dividir(){
+            var tn1 = document.getElementById("tn1")
+            var tn2 = document.getElementById("tn2")
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)  
+            var resultado = n1 / n2
+
+            if (n2 === 0){
+                res.innerHTML = `nao é possivel dividir por zero`
+            }else{
+                res.innerHTML = `Resultado: ${resultado}`
+            }
+        }
+        */
+        function calcular(op){
+            var tn1 = document.getElementById("tn1")
+            var tn2 = document.getElementById("tn2")
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)  
+            var resltado
+            if (op==='-'){
+                var resultado = n1 - n2
+            }
+            if (op==='+'){
+                var resultado = n1 + n2
+
+            }
+            if (op==='*'){
+                var resultado = n1 * n2
+            }
+            if (op==='/'){
+                if (n2===0){
+                    res.innerHTML = `nao é possivel dividir por zero`
+                }else{
+                    var resultado = n1 / n2
+                }
+            }
+            res.innerHTML = `resltado: ${resultado}`
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
