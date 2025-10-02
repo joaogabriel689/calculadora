@@ -5,8 +5,9 @@
         var mutiplicacao = document.getElementById('mutiplicar')
         var divisao = document.getElementById('dividir')
         var numero = document.getElementsByClassName('numeros')
-        var limpar = document.getElementById('limpar')
+        var limpa = document.getElementById('limpar')
         var igual = document.getElementById('calcular')
+        var apaga = document.getElementById('apagar')
         var num1 = null
         var operador = null
         var num2 = null
@@ -14,18 +15,23 @@
 
         soma.addEventListener('click', () => salvarnumero('+'))
         subtracao.addEventListener('click', () => salvarnumero('-'))
-        divisao.addEventListener('click', () => salvarnumero('X'))
-        mutiplicacao.addEventListener('click', () => salvarnumero('/'))
+        divisao.addEventListener('click', () => salvarnumero('/'))
+        mutiplicacao.addEventListener('click', () => salvarnumero('*'))
         for (let btn of numero) {
             btn.addEventListener('click', () => addnumber(btn.value))
         }
-        limpar.addEventListener('click', () => limpar())
+        limpa.addEventListener('click', () => limpar())
+        apaga.addEventListener('click', () => apagar())
         igual.addEventListener('click', () => calcular())
 
        function addnumber(number){
         visor.value += number
         
        }
+        function apagar(){
+            visor.value = visor.value.slice(0, -1)
+        }
+
        function limpar(){
         visor.value = ""
         res.innerHTML = `resutado:`
