@@ -8,6 +8,7 @@
         var limpa = document.getElementById('limpar')
         var igual = document.getElementById('calcular')
         var apaga = document.getElementById('apagar')
+        
         var num1 = null
         var operador = null
         var num2 = null
