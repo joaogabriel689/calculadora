@@ -1,0 +1,57 @@
+        body{
+            background-color: black;
+            display: flex;               
+            flex-direction: column;      
+            justify-content: center;      
+            align-items: center;         
+            height: 100vh;               
+            margin: 0;    
+
+        }
+        h1{
+            color: white;
+            text-align: center;
+        }
+        #tn1{
+            width: 240px;
+            height: 40px; 
+            border-radius: 15px;
+            background-color: darkgoldenrod;
+            text-align: right;           
+            font-size: 20px;
+            padding: 5px;
+        }
+        .botoesc{
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: darkgoldenrod;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        #areabotao{
+            display: grid;
+        grid-template-columns: repeat(4, 60px);
+        grid-gap: 10px;
+        justify-content: center;     /* centraliza a grade horizontalmente */
+        margin-top: 20px;
+
+        }
+        #res{
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #areanumeros{
+            margin: auto;
+            width: 10rem;
+            height: 2rem;
+            margin-bottom: 30px;
+
+        }
+        .botoesc:hover{
+            background-color: rgb(255, 188, 19);
+            transform: scale(1.1);
+        }

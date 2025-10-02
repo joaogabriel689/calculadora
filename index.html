@@ -3,66 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calaculadora</title>
-    <style>
-        body{
-            background-color: black;
-            display: flex;               
-            flex-direction: column;      
-            justify-content: center;      
-            align-items: center;         
-            height: 100vh;               
-            margin: 0;    
-
-        }
-        h1{
-            color: white;
-            text-align: center;
-        }
-        #tn1{
-            width: 240px;
-            height: 40px;
-            border-radius: 15px;
-            background-color: darkgoldenrod;
-            text-align: right;           
-            font-size: 20px;
-            padding: 5px;
-        }
-        .botoesc{
-            width: 60px;
-            height: 60px;
-            font-size: 20px;
-            border-radius: 10px;
-            background-color: darkgoldenrod;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-        #areabotao{
-            display: grid;
-        grid-template-columns: repeat(4, 60px);
-        grid-gap: 10px;
-        justify-content: center;     /* centraliza a grade horizontalmente */
-        margin-top: 20px;
-
-        }
-        #res{
-            color: white;
-            text-align: center;
-            margin-top: 50px;
-        }
-        #areanumeros{
-            margin: auto;
-            width: 10rem;
-            height: 2rem;
-            margin-bottom: 30px;
-
-        }
-        .botoesc:hover{
-            background-color: rgb(255, 188, 19);
-            transform: scale(1.1);
-        }
-    </style>
+    <title>calculadora</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>calculadora simples</h1>
@@ -70,93 +12,39 @@
         <input type="number" id="tn1">
     </div>
     <div id="areabotao">
-        <input type="button" value="7" id="7" class="botoesc" onclick="addnumber('7')">
-        <input type="button" value="8" id="8" class="botoesc" onclick="addnumber('8')">
-        <input type="button" value="9" id="9" class="botoesc" onclick="addnumber('9')">
-        <input type="button" value="-" id="subtrair" onclick="calcular('-')" class="botoesc">
+        <input type="button" value="7" id="7" class="botoesc numeros" >
+        <input type="button" value="8" id="8" class="botoesc numeros" >
+        <input type="button" value="9" id="9" class="botoesc numeros" >
+        <input type="button" value="-" id="subtrair" class="botoesc">
+ 
+
+        <input type="button" value="4" id="4" class="botoesc numeros" >
+        <input type="button" value="5" id="5" class="botoesc numeros" >
+        <input type="button" value="6" id="6" class="botoesc numeros" >
+        <input type="button" value="+" id="somar" class="botoesc">
 
 
-        <input type="button" value="4" id="4" class="botoesc" onclick="addnumber('4')">
-        <input type="button" value="5" id="5" class="botoesc" onclick="addnumber('5')">
-        <input type="button" value="6" id="6" class="botoesc" onclick="addnumber('6')">
-        <input type="button" value="+" id="somar" onclick="salvarnumero('+')" class="botoesc">
+        <input type="button" value="1" id="1" class="botoesc numeros" >
+        <input type="button" value="2" id="2" class="botoesc numeros" >
+        <input type="button" value="3" id="3" class="botoesc numeros" >
+        <input type="button" value="X" id="mutiplicar" class="botoesc">
 
 
-        <input type="button" value="1" id="1" class="botoesc" onclick="addnumber('1')">
-        <input type="button" value="2" id="2" class="botoesc" onclick="addnumber('2')">
-        <input type="button" value="3" id="3" class="botoesc" onclick="addnumber('3')">
-        <input type="button" value="X" id="mutiplicar" onclick="salvarnumero('*')" class="botoesc">
+        <input type="button" value="7" id="7" class="botoesc numeros" >
+        <input type="button" value="8" id="8" class="botoesc numeros" >
+        <input type="button" value="9" id="9" class="botoesc numeros" >
+        <input type="button" value="/" id="dividir"  class="botoesc">
 
+        <input type="button" value="0" id="0" class="botoesc numeros" >
 
-        <input type="button" value="7" id="7" class="botoesc" onclick="addnumber('7')">
-        <input type="button" value="8" id="8" class="botoesc" onclick="addnumber('8')">
-        <input type="button" value="9" id="9" class="botoesc" onclick="addnumber('9')">
-        <input type="button" value="/" id="dividir" onclick="salvarnumero('/')" class="botoesc">
-
-        <input type="button" value="0" id="0" class="botoesc" onclick="addnumber('0')">
-
-        <input type="button" value="C" onclick="limpar()" class="botoesc">
-        <input type="button" value="=" onclick="calcular(num1, num2, operador)" class="botoesc">
+        <input type="button" value="C" id="limpar" class="botoesc">
+        <input type="button" value="<=" id="apagar" class="botoesc">
+        <input type="button" value="=" id="calcular" class="botoesc">
         
     </div>
     
     <p id="res">resultado:</p>
-    <script>
-        var res = document.getElementById("res")
-        var visor = document.getElementById("tn1")
-        var num1 = null
-        var operador = null
-        var num2 = null
-        var resultado = null
-
-       function addnumber(number){
-        visor.value += number
-        
-       }
-       function limpar(){
-        visor.value = ""
-        res.innerHTML = `resutado:`
-       }
-       function salvarnumero(op){
-            if (num1 ===null ){
-               num1 = visor.value 
-            }
-            
-            operador = op
-            visor.value = ""
-
-       }
-
-        function calcular(num1, num2, operador){
-            var n1 = Number(num1)
-            var n2 = Number(visor.value)  
-            if (operador==='-'){
-                resultado = n1 - n2
-            }
-            if (operador==='+'){
-                resultado = n1 + n2
-
-            }
-            if (operador==='*'){
-                resultado = n1 * n2
-            }
-            if (operador==='/'){
-                if (n2===0){
-                    res.innerHTML = `nao é possivel dividir por zero`
-                    return
-                }else{
-                    resultado = n1 / n2
-                }
-            }
-            res.innerHTML = `resltado: ${resultado}`
-            visor.value = resultado
-            num1 = resultado
-        }
-
-
-
-
-
+    <script src="script.js">
     </script>
 </body>
 </html>
