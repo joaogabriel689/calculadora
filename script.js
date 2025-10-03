@@ -8,7 +8,7 @@
         var limpa = document.getElementById('limpar')
         var igual = document.getElementById('calcular')
         var apaga = document.getElementById('apagar')
-        
+
         var num1 = null
         var operador = null
         var num2 = null
@@ -41,9 +41,13 @@
         operador = null
        }
        function salvarnumero(op){
-            if (num1 ===null ){
-               num1 = visor.value 
+        if (visor.value !== "") {
+            if (num1 === null) {
+                num1 = visor.value
+            } else {
+                calcular() 
             }
+        }
             operador = op
             visor.value = ""
        }
