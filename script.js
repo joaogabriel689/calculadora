@@ -40,7 +40,7 @@ for (let btn of numero) {
     btn.addEventListener('click', () => addnumber(btn.value))
 }
 limpa.addEventListener('click', () => limpar())
-limpar_atual.addEventListener('click', () => limpar_atual())
+limpar_atual.addEventListener('click', () => limparatual())
 apaga.addEventListener('click', () => apagar())
 igual.addEventListener('click', () => calcular())
 
@@ -78,7 +78,9 @@ function limpar() {
     num2 = null
     operador = null
 }
-function limpar_atual() {
+
+//apagar apenas o numero que esta no visor
+function limparatual() {
     visor.value = ""
 }
 
