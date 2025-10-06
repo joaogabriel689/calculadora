@@ -47,7 +47,7 @@ function salvarnumero(op) {
     //garante que o usuario nao consiga salvar o "vazio"
     if (visor.value === "") return;
     //verifica se é o primeiro calculo ou se esta utilizando o resultado anterior para um novo calculo 
-    if (num1 === null) {
+    if (num1 === null || num1 === resultado) {
         num1 = Number(visor.value);
     } else {
         calcular();
