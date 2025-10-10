@@ -10,10 +10,12 @@ body {
 
 
 }
+
 h1 {
     color: white;
     text-align: center;
 }
+
 #tn1 {
     width: 260px;
     height: 40px;
@@ -47,11 +49,6 @@ h1 {
 
 }
 
-#res {
-    color: white;
-    text-align: center;
-    margin-top: 50px;
-}
 
 #areanumeros {
     margin: auto;
@@ -80,4 +77,52 @@ h1 {
     margin-top: 30px;
     width: 150px;
     height: 60px;
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: white;
+
+
+    }
+
+    .botoesc {
+        background-color: rgb(240, 176, 14);
+    }
+
+    h1 {
+        color: black;
+
+    }
+
+    #list_hist {
+        color: black;
+    }
+
+    #tn1 {
+        background-color: rgb(240, 176, 14);
+    }
+}
+
+body.light {
+    background-color: white;
+
+
+}
+
+.botoesc.light {
+    background-color: rgb(240, 176, 14);
+}
+
+h1.light {
+    color: black;
+
+}
+
+#list_hist.litght {
+    color: black;
+}
+
+#tn1.light {
+    background-color: rgb(240, 176, 14);
 }

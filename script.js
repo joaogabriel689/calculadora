@@ -37,8 +37,10 @@ function limparatual() {
 function salvarnumeroraiz(op){
     resultado = (Number(visor.value)**(1/2))
     var numerovisor = visor.value
-    historico.push(`${n1} ${operador} ${n2}= ${resultado}`)
+    historico.push(`${numerovisor} ^ (1/2)= ${resultado}`)
     visor.value = resultado
+    localStorage.setItem("historico", JSON.stringify(historico))
+    mostrar_historico()
 }
 
 
