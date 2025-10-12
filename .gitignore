@@ -1,0 +1,9 @@
+# Node modules (dependências)
+node_modules/
+
+# Variáveis de ambiente (senhas, configs)
+.env
+
+# Logs e arquivos temporários
+*.log
+tmp/
